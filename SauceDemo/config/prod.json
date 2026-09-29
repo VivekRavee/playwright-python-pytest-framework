@@ -1,0 +1,4 @@
+{
+"environment": "PROD",
+"base_url": "https://sauce-demo.myshopify.com"
+}

@@ -1,0 +1,11 @@
+venv/
+__pycache__/
+.pytest_cache/
+
+reports/
+screenshots/
+logs/
+traces/
+
+*.pyc
+*.*og
