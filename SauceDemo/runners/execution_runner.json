@@ -1,0 +1,28 @@
+{
+    "execution_set": [
+        {
+            "testcase_id": "TC001",
+            "execute": "Y",
+            "flow": "LOGIN",
+            "environment": "QA",
+            "testdata_file": "login_data.json",
+            "dataset": "valid_login"
+        },
+        {
+            "testcase_id": "TC002",
+            "execute": "Y",
+            "flow": "LOGIN>HOME",
+            "environment": "QA",
+            "testdata_file": "login_data.json",
+            "dataset": "valid_login"
+        },
+        {
+            "testcase_id": "TC003",
+            "execute": "Y",
+            "flow": "LOGIN>HOME>CATALOG",
+            "environment": "QA",
+            "testdata_file": "login_data.json",
+            "dataset": "valid_login"
+        }
+    ]
+}
