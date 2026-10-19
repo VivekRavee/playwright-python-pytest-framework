@@ -2,6 +2,8 @@
     "execution_set": [
         {
             "testcase_id": "TC001",
+            "testcase_name":"Valid Login",
+            "description": "Verify user can login with valid credentials.",
             "execute": "Y",
             "flow": "LOGIN",
             "environment": "QA",
@@ -10,6 +12,8 @@
         },
         {
             "testcase_id": "TC002",
+            "testcase_name": "Verify Home Page",
+            "description": "Verify Home page is loaded properly",
             "execute": "Y",
             "flow": "LOGIN>HOME",
             "environment": "QA",
@@ -18,11 +22,14 @@
         },
         {
             "testcase_id": "TC003",
+            "testcase_name":"Invalid Login",
+            "description": "Verify user cannot login with invalid credentials.",
             "execute": "Y",
-            "flow": "LOGIN>HOME>CATALOG",
+            "flow": "LOGIN",
             "environment": "QA",
             "testdata_file": "login_data.json",
-            "dataset": "valid_login"
+            "dataset": "invalid_login"
         }
+        
     ]
 }
