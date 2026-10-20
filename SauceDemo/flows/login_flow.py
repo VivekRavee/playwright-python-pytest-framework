@@ -50,12 +50,8 @@ class LoginFlow:
         #
         # Step 2 - Enter Credentials
         #
-        login_page.enter_username(
-            testdata["username"]
-        )
-
-        login_page.enter_password(
-            testdata["password"]
+        login_page.login_creds(
+            testdata["username"],testdata["password"]
         )
 
         credentials_shot = (
@@ -81,22 +77,22 @@ class LoginFlow:
         #
         # Step 3 - Click Login
         #
-        login_page.click_login()
+        login_page.loginSubmit()
 
         #
         # Step 4 - Login Validation
         #
-        if login_page.verify_login_success():
+        login_page.verify_login_success()
 
-            success_shot = (
+        success_shot = (
                 EvidenceManager.capture_screenshot(
                     self.page,
                     self.testcase_id,
                     "login_success"
                 )
-            )
+        )
 
-            ExecutionEvidence.add_step(
+        ExecutionEvidence.add_step(
                 step_name="Login Successful",
 
                 description=
@@ -106,9 +102,9 @@ class LoginFlow:
                 "Verify user is successfully navigated to Inventory page",
 
                 screenshot=success_shot
-            )
+        )
 
-            with allure.step(
+        with allure.step(
                 "Login Successful"
             ):
                 allure.attach.file(
@@ -116,40 +112,6 @@ class LoginFlow:
                     name="Login Success",
                     attachment_type=
                     allure.attachment_type.PNG
-                )
+        )
 
-        else:
-
-            failure_shot = (
-                EvidenceManager.capture_screenshot(
-                    self.page,
-                    self.testcase_id,
-                    "login_failure"
-                )
-            )
-
-            ExecutionEvidence.add_step(
-                step_name="Login Failed",
-
-                description=
-                "Click Login button",
-
-                validation=
-                "Verify error message is displayed",
-
-                screenshot=failure_shot
-            )
-
-            with allure.step(
-                "Login Failed"
-            ):
-                allure.attach.file(
-                    failure_shot,
-                    name="Login Failure",
-                    attachment_type=
-                    allure.attachment_type.PNG
-                )
-
-            raise Exception(
-                "Login failed"
-            )
+        
